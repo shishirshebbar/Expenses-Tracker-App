@@ -1,5 +1,7 @@
 import { useReducer } from "react"
 import React,{createContext} from 'react'
+import AppReducer from './AppReducer';
+
 
 const initial = {
     transactions : 
@@ -11,4 +13,17 @@ const initial = {
         {id:5,text:"UPI", amount:+1300},
         {id:6,text:"Credit Card", amount:-500}
     ]
+}
+
+//Context creation
+export const GlobalContext= createContext(initial);
+
+//Add  Global provider
+export const GlobalProvider = ({children})=>{
+    const [state,dispatch] = useReducer(AppReducer,initial);
+    return(<GlobalContext.Provider value ={{
+        transactions: state.transactions
+    }}>
+        {children}
+    </GlobalContext.Provider>)
 }
