@@ -1,9 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 import { GlobalContext } from '../Context-api/Global';
 import Transactions from './Transactions'; // Correct relative path
 
 export const TransactionsList = () => {
-  const { transactions } = useContext(GlobalContext);
+  const { transactions,getTransactions } = useContext(GlobalContext);
+
+  useEffect(()=>{
+    getTransactions();
+    //
+  },[])
 
   return (
     <>

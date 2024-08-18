@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react';
 import { GlobalContext } from '../Context-api/Global';
+import {numberWithCommas} from '../utilities/numberwithcomma'
 //Header of the webpage
 
 export const Balance = () => {
@@ -10,7 +11,7 @@ export const Balance = () => {
   return (
     <>
     <h4>Balance in your account is:</h4>
-    <h1 id = "balance">₹{total}</h1>
+    <h1 id = "balance">₹{numberWithCommas(total)}</h1>
     </>
   )
 }
